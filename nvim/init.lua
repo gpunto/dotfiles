@@ -1,0 +1,11 @@
+vim.cmd('source ~/.vimrc')
+require('user.plugins')
+require('user.colorscheme')
+require('user.cmp')
+require('user.lsp')
+require('user.treesitter')
+require('user.hop')
+require('user.lualine')
+require('user.telescope')
+require('user.toggleterm')
+

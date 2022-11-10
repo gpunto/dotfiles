@@ -1,0 +1,30 @@
+; - Tutorial
+; https://github.com/yqrashawn/GokuRakuJoudo/blob/master/tutorial.md
+; - Examples
+; https://github.com/yqrashawn/GokuRakuJoudo/blob/master/examples.org
+; - Keys reference
+; https://github.com/yqrashawn/GokuRakuJoudo/blob/master/src/karabiner_configurator/keys_info.clj
+; - Kaush's post + gist
+; https://blog.kaush.co/2019/12/25/hacking-your-keyboard/
+; https://gist.github.com/kaushikgopal/ff7a92bbc887e59699c804b59074a126
+; - Random
+; https://github.com/kchen0x/k-goku/blob/master/karabiner.edn
+; Find bundle id: osascript -e 'id of app "SomeApp"'
+
+{
+    :profiles {
+        :Default {
+            :default true
+            :sim     1
+            :delay   500
+            :alone   500
+            :held    500
+        }
+    }
+
+    :main [
+        {:des "Right shift -> CMD/F19" :rules [[:right_shift :left_command nil {:alone :f19}]]}
+        
+        {:des "Caps -> Hyper / Esc" :rules [[:caps_lock :!CTOleft_shift nil {:alone :escape}]]}
+    ]
+}

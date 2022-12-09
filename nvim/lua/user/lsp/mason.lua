@@ -1,10 +1,10 @@
 local servers = {
-	"sumneko_lua",
-	"pyright",
-	"jsonls",
-  "hls",
-  "kotlin_language_server",
   "clangd",
+  "hls",
+	"jsonls",
+  "kotlin_language_server",
+  "marksman",
+	"sumneko_lua",
 }
 
 local settings = {

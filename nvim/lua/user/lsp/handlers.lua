@@ -13,7 +13,6 @@ M.setup = function()
   end
 
   local config = {
-    -- disable virtual text
     virtual_text = false,
     -- show signs
     signs = {
@@ -65,20 +64,25 @@ end
 
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
+  -- Telescope
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>fo", "<cmd>Telescope lsp_document_symbols<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>fO", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>e", "<cmd>Telescope diagnostics<CR>", opts)
+
+  -- LSP
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<F14>", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<F2>", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format({ async = false })' ]]
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>s", "<cmd>Format<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>s", "<cmd>Format<CR><cmd>w<CR>", opts)
 end
 
 M.on_attach = function(client, bufnr)

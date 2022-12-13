@@ -21,7 +21,5 @@ let mapleader=" "
 :noremap! <S-A-BS> <C-u>
 :noremap U <C-r>
 
-nnoremap "p :reg <bar> exec 'normal! "'.input('>').'p'<CR>
-
 filetype plugin indent on
 syntax on

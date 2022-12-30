@@ -73,10 +73,16 @@ return packer.startup(function(use)
 	use({
 		"AckslD/nvim-neoclip.lua",
 		requires = {
-			-- { "kkharji/sqlite.lua", module = "sqlite" },
 			{ "kkharji/sqlite.lua" },
 			{ "nvim-telescope/telescope.nvim" },
 		},
+	})
+
+	use({
+		"ggandor/leap.nvim",
+		config = function()
+			require("leap").add_default_mappings()
+		end,
 	})
 
 	use({
@@ -87,10 +93,14 @@ return packer.startup(function(use)
 	})
 
 	use({
-		"phaazon/hop.nvim",
-		branch = "v2",
+		"kylechui/nvim-surround",
+		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
 		config = function()
-			require("hop").setup()
+			require("nvim-surround").setup({
+				keymaps = {
+					visual = "gS",
+				},
+			})
 		end,
 	})
 

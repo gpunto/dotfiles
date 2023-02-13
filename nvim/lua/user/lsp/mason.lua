@@ -1,9 +1,10 @@
 local servers = {
-  "clangd",
-  "hls",
+	"clangd",
+	"hls",
 	"jsonls",
-  "kotlin_language_server",
-  "marksman",
+	"kotlin_language_server",
+	"marksman",
+	"tsserver",
 	"sumneko_lua",
 }
 

@@ -9,7 +9,7 @@ source ~/.vimrc
 :map <leader>r <Action>(Run)
 :map <leader>t <Action>(RunClass)
 :map <leader>d <Action>(Debug)
-:map <leader>s <Action>(ReformatCode)
+:map <leader>s <Action>(OptimizeImports) <Action>(ReformatCode)
 
 "" Map <leader>d to start debug
 "map <leader>d <Action>(Debug)

@@ -5,7 +5,7 @@ local servers = {
 	"kotlin_language_server",
 	"marksman",
 	"tsserver",
-	"sumneko_lua",
+	"lua_ls",
 }
 
 local settings = {

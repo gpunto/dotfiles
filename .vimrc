@@ -6,7 +6,7 @@ set title
 set wildmenu 
 set cc=100
 set ruler
-set scrolloff=10
+set scrolloff=3
 set expandtab
 set tabstop=2
 set shiftwidth=2

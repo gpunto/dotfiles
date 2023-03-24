@@ -5,6 +5,7 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "yqrashawn/goku"
 
+brew "fzf"
 brew "hugo"
 brew "openjdk"
 brew "neovim"

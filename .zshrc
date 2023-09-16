@@ -105,11 +105,7 @@ source "/Users/$USER/.pvt.zsh"
 [ -f "/Users/$USER/.ghcup/env" ] && source "/Users/$USER/.ghcup/env" # ghcup-env
 
 export ANDROID_HOME=/Users/$USER/Library/Android/sdk
-export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+export PATH=${PATH}:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 bindkey "ç" fzf-cd-widget
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

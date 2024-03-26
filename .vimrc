@@ -20,6 +20,7 @@ let mapleader=" "
 :noremap! <A-BS> <C-w>
 :noremap! <S-A-BS> <C-u>
 :noremap U <C-r>
+:nnoremap J gJ
 :nnoremap <leader>h :nohlsearch<CR>
 
 filetype plugin indent on

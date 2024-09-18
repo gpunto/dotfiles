@@ -6,6 +6,7 @@ source ~/.vimrc
 :map <leader>t <Action>(RunClass)
 :map <leader>d <Action>(Debug)
 :map <leader>s <Action>(OptimizeImports) <Action>(ReformatCode)
+:map <leader>e <Action>(Refactorings.QuickListPopupAction)
 nmap s :action KJumpAction.Word0<cr>
 
 " Find more examples here: https://jb.gg/share-ideavimrc

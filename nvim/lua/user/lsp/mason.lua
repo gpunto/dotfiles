@@ -4,7 +4,7 @@ local servers = {
 	"jsonls",
 	"kotlin_language_server",
 	"marksman",
-	"tsserver",
+	"ts_ls",
 	"lua_ls",
 }
 

@@ -1,5 +1,6 @@
 local servers = {
 	"clangd",
+  "clojure_lsp",
 	"hls",
 	"jsonls",
 	"kotlin_language_server",

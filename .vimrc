@@ -17,11 +17,12 @@ set hlsearch
 nnoremap <SPACE> <Nop>
 let mapleader=" "
 
-:noremap! <A-BS> <C-w>
-:noremap! <S-A-BS> <C-u>
-:noremap U <C-r>
-:nnoremap J gJ
-:nnoremap <leader>h :nohlsearch<CR>
+noremap! <A-BS> <C-w>
+noremap! <S-A-BS> <C-u>
+noremap U <C-r>
+nnoremap J gJ
+nnoremap <leader>h :nohlsearch<CR>
+xnoremap <leader>p "_dP
 
 filetype plugin indent on
 syntax on

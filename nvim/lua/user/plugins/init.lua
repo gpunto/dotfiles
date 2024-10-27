@@ -7,6 +7,8 @@ return {
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
 
+  "knubie/vim-kitty-navigator",
+
   {
     "numToStr/Comment.nvim",
     config = function()

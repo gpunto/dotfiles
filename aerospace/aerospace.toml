@@ -184,10 +184,6 @@ if.window-title-regex-substring = 'Bitwarden'
 run = 'layout floating'
 
 [[on-window-detected]]
-if.app-id = 'net.kovidgoyal.kitty'
-run = 'move-node-to-workspace P'
-
-[[on-window-detected]]
 if.app-id = 'com.google.android.studio'
 run = 'move-node-to-workspace D'
 

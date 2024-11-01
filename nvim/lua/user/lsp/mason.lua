@@ -4,9 +4,10 @@ local servers = {
 	"hls",
 	"jsonls",
 	"kotlin_language_server",
+	"lua_ls",
 	"marksman",
 	"ts_ls",
-	"lua_ls",
+  "rust_analyzer",
 }
 
 local settings = {

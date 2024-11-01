@@ -97,8 +97,6 @@ source $ZSH/oh-my-zsh.sh
 HISTSIZE=500000
 SAVEHIST=500000
 
-eval "$(rbenv init -)"
-
 source "/Users/$USER/Sviluppo/dotfiles/aliases.zsh"
 source "/Users/$USER/.pvt.zsh"
 

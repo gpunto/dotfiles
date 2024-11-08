@@ -15,3 +15,5 @@ alias hg='history | grep'
 alias v='nvim'
 
 alias gw='./gradlew'
+
+alias sudo='sudo '

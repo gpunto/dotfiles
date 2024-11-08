@@ -1,4 +1,5 @@
-export ZSH="/Users/$USER/.oh-my-zsh"
+tilde=~
+export ZSH="${tilde}/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -97,14 +98,11 @@ source $ZSH/oh-my-zsh.sh
 HISTSIZE=500000
 SAVEHIST=500000
 
-source "/Users/$USER/Sviluppo/dotfiles/aliases.zsh"
-source "/Users/$USER/.pvt.zsh"
+[ -f "${tilde}/.ghcup/env" ] && . "${tilde}/.ghcup/env" # ghcup-env
 
-[ -f "/Users/$USER/.ghcup/env" ] && source "/Users/$USER/.ghcup/env" # ghcup-env
+source "${tilde}/Sviluppo/dotfiles/aliases.zsh"
+source "${tilde}/.pvt.zsh"
 
-export ANDROID_HOME=/Users/$USER/Library/Android/sdk
-export PATH=${PATH}:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 bindkey "ç" fzf-cd-widget
 

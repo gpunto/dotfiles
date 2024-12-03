@@ -162,19 +162,19 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.google.android.studio'
-run = 'move-node-to-workspace D'
+run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
 if.app-id = 'org.telegram.desktop'
-run = 'move-node-to-workspace C'
+run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.mail'
-run = 'move-node-to-workspace C'
+run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
 if.app-id = 'com.electron.logseq'
-run = 'move-node-to-workspace N'
+run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'

@@ -44,4 +44,9 @@ def handle_result(args, result, target_window_id, boss):
             encoded = encode_key_mapping(window, keymap)
             window.write_to_child(encoded)
     else:
-        boss.active_tab.neighboring_window(direction)
+        if direction == "right":
+            boss.active_tab.next_window()
+        elif direction == "left":
+            boss.active_tab.previous_window()
+        else:
+            boss.active_tab.neighboring_window(direction)

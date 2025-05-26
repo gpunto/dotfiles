@@ -7,7 +7,7 @@ alias rebab='git rebase --abort'
 alias pushnew='g push -u origin `git rev-parse --abbrev-ref HEAD`'
 alias ck='g checkout'
 alias ckb='g checkout -b'
-alias pf='g push -f'
+alias pf='g push --force-with-lease'
 
 alias h='history' 
 alias hg='history | grep'

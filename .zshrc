@@ -60,6 +60,12 @@ ZSH_THEME="spaceship"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# Homebrew config
+# Needed before sourcing omz to make completions work
+eval "$(brew shellenv)"
+# Enforces using brew-installed commands before system ones
+export PATH="/opt/homebrew/bin:$PATH"
+
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/

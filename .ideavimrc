@@ -1,7 +1,7 @@
 source ~/.vimrc
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
-:map <C-r> <Action>(Run)
+:map <C-t> <Action>(Refactorings.QuickListPopupAction)
 :map <leader>r <Action>(Run)
 :map <leader>t <Action>(RunClass)
 :map <leader>d <Action>(Debug)

@@ -1,13 +1,13 @@
 local servers = {
-	"clangd",
-  "clojure_lsp",
-	"hls",
-	"jsonls",
-	"kotlin_language_server",
-	"lua_ls",
-	"marksman",
-	"ts_ls",
-  "rust_analyzer",
+	-- "clangd",
+  -- "clojure_lsp",
+	-- "hls",
+	-- "jsonls",
+	-- "kotlin_language_server",
+	-- "lua_ls",
+	-- "marksman",
+	-- "ts_ls",
+  -- "rust_analyzer",
 }
 
 local settings = {

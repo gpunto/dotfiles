@@ -1,0 +1,8 @@
+[user]
+  name = Gian
+  email = 47775302+gpunto@users.noreply.github.com
+
+[core]
+  hooksPath = ~/Sviluppo/dotfiles/git/hooks
+  excludesfile = ~/Sviluppo/dotfiles/git/gitignore_global
+

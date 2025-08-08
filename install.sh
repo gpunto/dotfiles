@@ -2,6 +2,9 @@
 
 echo "Setting up Git configuration..."
 
-git config --global include.path '~/dotfiles/git/gitconfig_global'
-
-echo "Git setup complete"
+if git config --global include.path '~/Sviluppo/dotfiles/git/gitconfig_global'; then
+  echo "✅ Git setup complete"
+else
+  echo "❌ ERROR: Failed to set the Git configuration." >&2
+  exit 1
+fi

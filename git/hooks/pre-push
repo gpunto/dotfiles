@@ -1,0 +1,21 @@
+#!/bin/sh
+
+echo "running"
+protected_branches=("main" "master" "develop")
+
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+
+is_protected=false
+for branch in "${protected_branches[@]}"; do
+    if [ "$current_branch" = "$branch" ]; then
+        is_protected=true
+        break
+    fi
+done
+
+if [ "$is_protected" = true ]; then
+    echo "🚫 Direct push to '$current_branch' is not allowed."
+    exit 1
+fi
+
+exit 0

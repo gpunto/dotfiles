@@ -6,3 +6,5 @@
   hooksPath = ~/Sviluppo/dotfiles/git/hooks
   excludesfile = ~/Sviluppo/dotfiles/git/gitignore_global
 
+[push]
+    autoSetupRemote = true

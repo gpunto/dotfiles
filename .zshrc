@@ -113,3 +113,5 @@ source <(fzf --zsh)
 bindkey "ç" fzf-cd-widget
 
 eval "$(zoxide init zsh)"
+
+setopt CORRECT

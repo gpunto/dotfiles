@@ -3,7 +3,20 @@ return {
 	build = ":TSUpdate",
 	config = function()
 		require("nvim-treesitter.configs").setup({
-			ensure_installed = "all",
+			ensure_installed = {
+				"lua",
+				"vim",
+				"vimdoc",
+				"query",
+				"rust",
+				"kotlin",
+				"bash",
+				"json",
+				"toml",
+				"yaml",
+				"markdown",
+				"markdown_inline",
+			},
 			sync_install = false,
 			ignore_install = { "" }, -- List of parsers to ignore installing
 			highlight = {

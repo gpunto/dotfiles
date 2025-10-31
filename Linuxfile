@@ -1,0 +1,23 @@
+# Linux packages to install
+
+# Development tools
+git
+gh
+lazygit
+neovim
+ripgrep
+
+# Utilities
+fzf
+tealdeer
+tree
+wget
+zoxide
+
+# Terminal
+kitty
+
+# Wayland/Hyprland ecosystem
+hyprland
+waybar
+rofi

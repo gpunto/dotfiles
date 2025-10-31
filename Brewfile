@@ -1,20 +1,32 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
-tap "homebrew/cask-drivers"
-tap "homebrew/cask-versions"
-tap "homebrew/core"
+tap "homebrew/cask-fonts"
 tap "yqrashawn/goku"
 
-brew "fzf"
-brew "hugo"
-brew "openjdk"
+# Development tools
+brew "gh"
+brew "lazygit"
 brew "neovim"
+brew "ripgrep"
+
+# Utilities
+brew "fzf"
+brew "tealdeer"
+brew "tree"
 brew "wget"
+brew "zoxide"
+
+# Karabiner-Elements config tool
 brew "yqrashawn/goku/goku"
 
-cask "eloston-chromium"
+# Desktop applications
+cask "aerospace"
+cask "bluesnooze"
 cask "kitty"
 cask "notunes"
-cask "qmk-toolbox"
 cask "raycast"
-cask "temurin"
+cask "scroll-reverser"
+
+# Fonts
+cask "font-fira-code"
+cask "font-fira-code-nerd-font"

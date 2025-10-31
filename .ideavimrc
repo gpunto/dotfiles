@@ -13,4 +13,4 @@ nmap s :action KJumpAction.Word0<cr>
 set clipboard+=ideaput
 set idearefactormode=keep
 set surround
-set ideavimsupport=
+set ideavimsupport=dialog

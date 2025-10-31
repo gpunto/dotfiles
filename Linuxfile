@@ -1,11 +1,18 @@
 # Linux packages to install
 
+# Shell
+zsh
+
 # Development tools
 git
-gh
 lazygit
 neovim
 ripgrep
+bat
+eza
+fd
+jq
+curl
 
 # Utilities
 fzf
@@ -13,11 +20,42 @@ tealdeer
 tree
 wget
 zoxide
+btop
 
 # Terminal
 kitty
 
 # Wayland/Hyprland ecosystem
 hyprland
+hyprlock
+hypridle
+hyprpaper
 waybar
 rofi
+mako
+wl-clipboard
+xdg-desktop-portal-hyprland
+xdg-desktop-portal-gtk
+
+# Screenshot tools
+grim
+slurp
+swappy
+
+# System utilities
+brightnessctl
+pavucontrol
+network-manager-applet
+smartmontools
+
+# Desktop/Apps
+firefox
+telegram-desktop
+dolphin
+imv
+sddm
+
+# Fonts
+ttf-firacode-nerd
+noto-fonts
+noto-fonts-emoji

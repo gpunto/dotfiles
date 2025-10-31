@@ -1,0 +1,7 @@
+# AUR packages to install (requires yay)
+
+# SDDM themes
+sddm-astronaut-theme
+
+# Hyprland tools
+hyprshell

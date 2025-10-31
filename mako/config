@@ -1,0 +1,17 @@
+# Mako notification daemon configuration
+
+default-timeout=5000
+
+# Optional styling
+font=FiraCode Nerd Font 11
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#89b4fa
+border-size=2
+border-radius=10
+padding=15
+margin=10
+
+# Position
+anchor=top-right
+

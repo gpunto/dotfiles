@@ -2,9 +2,5 @@
 
 source "$(dirname "$0")/../scripts/check_protected_branch.sh"
 
-if protected_branch_name=$(is_current_branch_protected); then
-    echo "🚫 Direct push to the protected branch '$protected_branch_name' is not allowed."
-    exit 1
-fi
-
-exit 0
+check_protected_branch_operation
+exit $?

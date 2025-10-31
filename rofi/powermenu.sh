@@ -6,7 +6,7 @@ suspend=$'󰒲\tSuspend'
 logout=$'󰿅\tLogout'
 
 rofi_cmd() {
-    rofi -dmenu -p "Power Menu"
+    rofi -dmenu -i -p "Power Menu"
 }
 
 chosen="$(echo -e "$suspend\n$logout\n$shutdown\n$reboot" | rofi_cmd)"

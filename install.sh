@@ -21,28 +21,24 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     OS="linux"
 else
-    echo -e "${RED}❌ Unsupported OS: $OSTYPE${NC}"
+    echo -e "${RED}[ERROR] Unsupported OS: $OSTYPE${NC}"
     exit 1
 fi
 
-echo -e "${BLUE}🚀 Starting dotfiles installation for ${OS}...${NC}\n"
+echo -e "${BLUE}Starting dotfiles installation for ${OS}...${NC}\n"
 
-# Function to print step
 print_step() {
-    echo -e "${YELLOW}➜ $1${NC}"
+    echo -e "${YELLOW}[*] $1${NC}"
 }
 
-# Function to print success
 print_success() {
-    echo -e "${GREEN}✅ $1${NC}\n"
+    echo -e "${GREEN}[OK] $1${NC}\n"
 }
 
-# Function to print error
 print_error() {
-    echo -e "${RED}❌ $1${NC}\n"
+    echo -e "${RED}[ERROR] $1${NC}\n"
 }
 
-# Function to create symlink
 create_symlink() {
     local source="$1"
     local target="$2"
@@ -95,6 +91,8 @@ elif [[ "$OS" == "linux" ]]; then
     create_symlink "$DOTFILES_DIR/hypr" "$HOME/.config/hypr"
     create_symlink "$DOTFILES_DIR/rofi" "$HOME/.config/rofi"
     create_symlink "$DOTFILES_DIR/waybar" "$HOME/.config/waybar"
+    create_symlink "$DOTFILES_DIR/mako" "$HOME/.config/mako"
+    create_symlink "$DOTFILES_DIR/hyprshell" "$HOME/.config/hyprshell"
 fi
 
 print_success "Dotfiles symlinked"
@@ -147,12 +145,32 @@ if [[ "$OS" == "macos" ]]; then
     fi
 
 elif [[ "$OS" == "linux" ]]; then
+    # =============================================================================
+    # STEP 4a: Install yay if on Arch Linux and not present
+    # =============================================================================
+    if command -v pacman &> /dev/null && ! command -v yay &> /dev/null; then
+        print_step "Installing yay (AUR helper)..."
+
+        sudo pacman -S --noconfirm --needed base-devel git
+
+        # Clone and install yay
+        TEMP_DIR=$(mktemp -d)
+        cd "$TEMP_DIR"
+        git clone https://aur.archlinux.org/yay.git
+        cd yay
+        makepkg -si --noconfirm
+        cd "$DOTFILES_DIR"
+        rm -rf "$TEMP_DIR"
+
+        print_success "yay installed"
+    fi
+
     print_step "Installing Linux packages..."
 
     # Detect package manager
     if command -v pacman &> /dev/null; then
         PKG_MANAGER="pacman"
-        INSTALL_CMD="sudo pacman -S --noconfirm"
+        INSTALL_CMD="sudo pacman -S --noconfirm --needed"
     elif command -v apt-get &> /dev/null; then
         PKG_MANAGER="apt"
         INSTALL_CMD="sudo apt-get install -y"
@@ -179,22 +197,71 @@ elif [[ "$OS" == "linux" ]]; then
         done < "$DOTFILES_DIR/Linuxfile"
 
         # Install packages
-        for package in "${PACKAGES[@]}"; do
-            echo "  Installing $package..."
-            $INSTALL_CMD "$package" || echo "  Warning: Failed to install $package (may not be available for $PKG_MANAGER)"
-        done
+        if [[ "$PKG_MANAGER" == "pacman" ]]; then
+            echo "  Installing packages (skipping already installed)..."
+            $INSTALL_CMD "${PACKAGES[@]}" || echo "  Warning: Some packages failed to install"
+        else
+            # For other package managers, install one by one
+            for package in "${PACKAGES[@]}"; do
+                echo "  Installing $package..."
+                $INSTALL_CMD "$package" || echo "  Warning: Failed to install $package (may not be available for $PKG_MANAGER)"
+            done
+        fi
     else
         print_error "Linuxfile not found"
     fi
 
     print_success "Linux packages installed"
+
+    # =============================================================================
+    # STEP 5b: Install AUR packages (Arch Linux only)
+    # =============================================================================
+    if command -v yay &> /dev/null && [[ -f "$DOTFILES_DIR/AURfile" ]]; then
+        print_step "Installing AUR packages..."
+
+        AUR_PACKAGES=()
+        while IFS= read -r line || [[ -n "$line" ]]; do
+            # Skip empty lines and comments
+            [[ -z "$line" || "$line" =~ ^[[:space:]]*# ]] && continue
+            # Trim whitespace and add to array
+            package=$(echo "$line" | xargs)
+            [[ -n "$package" ]] && AUR_PACKAGES+=("$package")
+        done < "$DOTFILES_DIR/AURfile"
+
+        # Install AUR packages
+        echo "  Installing AUR packages (skipping already installed)..."
+        yay -S --noconfirm --needed "${AUR_PACKAGES[@]}" || echo "  Warning: Some AUR packages failed to install"
+
+        print_success "AUR packages installed"
+    fi
+
+    # =============================================================================
+    # STEP 6: Configure SDDM (Linux only)
+    # =============================================================================
+    print_step "Configuring SDDM..."
+
+    if [[ -f "$DOTFILES_DIR/sddm/sddm.conf" ]]; then
+        echo "  Symlinking SDDM configuration (requires sudo)..."
+        sudo ln -sf "$DOTFILES_DIR/sddm/sddm.conf" /etc/sddm.conf
+        echo "  SDDM config linked to /etc/sddm.conf"
+
+        # Set theme variant if astronaut theme is installed
+        if [[ -d "/usr/share/sddm/themes/sddm-astronaut-theme" ]]; then
+            sudo sed -i 's|^ConfigFile=.*|ConfigFile=Themes/japanese_aesthetic.conf|' /usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop
+            echo "  Astronaut theme set to japanese_aesthetic variant"
+        else
+            echo "  Note: Install sddm-astronaut-theme first"
+        fi
+
+        print_success "SDDM configured"
+    fi
 fi
 
 # =============================================================================
 # Final message
 # =============================================================================
 echo -e "${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${GREEN}✨ Dotfiles installation complete!${NC}"
+echo -e "${GREEN}Dotfiles installation complete!${NC}"
 echo -e "${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 echo -e "${YELLOW}Next steps:${NC}"

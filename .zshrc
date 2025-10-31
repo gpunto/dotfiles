@@ -60,11 +60,13 @@ ZSH_THEME="spaceship"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Homebrew config
-# Needed before sourcing omz to make completions work
-# eval "$(brew shellenv)"
-# Enforces using brew-installed commands before system ones
-# export PATH="/opt/homebrew/bin:$PATH"
+# Homebrew config (macOS only)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # Needed before sourcing omz to make completions work
+  eval "$(brew shellenv)"
+  # Enforces using brew-installed commands before system ones
+  export PATH="/opt/homebrew/bin:$PATH"
+fi
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
@@ -115,3 +117,13 @@ bindkey "ç" fzf-cd-widget
 eval "$(zoxide init zsh)"
 
 setopt CORRECT
+
+# SSH agent setup (OS-specific)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # macOS: Use macOS keychain for SSH keys
+  ssh-add --apple-use-keychain &>/dev/null
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  # Linux: Use gpg-agent for SSH authentication
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+  gpgconf --launch gpg-agent
+fi

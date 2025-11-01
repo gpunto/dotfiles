@@ -1,30 +1,53 @@
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/cask-fonts"
 tap "yqrashawn/goku"
 
-# Development tools
+# Core development tools
+brew "git"
 brew "gh"
 brew "lazygit"
 brew "neovim"
+brew "node"
+
+# Code search and navigation
+brew "fd"
+brew "fzf"
 brew "ripgrep"
 
-# Utilities
-brew "fzf"
+# CLI utilities
+brew "bat"
+brew "btop"
+brew "eza"
+brew "jq"
 brew "tealdeer"
 brew "tree"
 brew "wget"
 brew "zoxide"
 
+# Git tools
+brew "delta"
+
+# Other tools
+brew "hugo"
+brew "speedtest-cli"
+
 # Karabiner-Elements config tool
 brew "yqrashawn/goku/goku"
 
-# Desktop applications
+# Window management
 cask "aerospace"
-cask "bluesnooze"
+
+# Terminal
 cask "kitty"
-cask "notunes"
+
+# Productivity
 cask "raycast"
+
+# Utilities
+cask "bluesnooze"
+cask "calibre"
+cask "karabiner-elements"
+cask "localsend"
+cask "notunes"
+cask "qmk-toolbox"
 cask "scroll-reverser"
 
 # Fonts

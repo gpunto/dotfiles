@@ -1,8 +1,9 @@
 tap "yqrashawn/goku"
 
-# Core development tools
+# Development tools
 brew "git"
 brew "gh"
+brew "delta"
 brew "lazygit"
 brew "neovim"
 brew "node"
@@ -21,9 +22,6 @@ brew "tealdeer"
 brew "tree"
 brew "wget"
 brew "zoxide"
-
-# Git tools
-brew "delta"
 
 # Other tools
 brew "hugo"

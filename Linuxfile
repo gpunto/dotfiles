@@ -5,8 +5,11 @@ zsh
 
 # Development tools
 git
+gh
+git-delta
 lazygit
 neovim
+nodejs
 ripgrep
 bat
 eza
@@ -21,6 +24,10 @@ tree
 wget
 zoxide
 btop
+speedtest-cli
+
+# Other tools
+hugo
 
 # Terminal
 kitty

@@ -5,6 +5,29 @@
 [core]
   hooksPath = ~/Sviluppo/dotfiles/git/hooks
   excludesfile = ~/Sviluppo/dotfiles/git/gitignore_global
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true
+  light = false
+  side-by-side = false
+  line-numbers = true
+  syntax-theme = Dracula
+  minus-style = syntax "#3f2d3d"
+  minus-emph-style = syntax "#763842"
+  plus-style = syntax "#283b4d"
+  plus-emph-style = syntax "#316172"
+  line-numbers-minus-style = "#b15e7c"
+  line-numbers-plus-style = "#57a5b8"
+
+[merge]
+  conflictstyle = diff3
+
+[diff]
+  colorMoved = default
 
 [push]
     autoSetupRemote = true

@@ -80,6 +80,7 @@ create_symlink "$DOTFILES_DIR/aliases.zsh" "$HOME/aliases.zsh"
 # Config directory - common for both OS
 create_symlink "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 create_symlink "$DOTFILES_DIR/kitty" "$HOME/.config/kitty"
+create_symlink "$DOTFILES_DIR/lazygit" "$HOME/.config/lazygit"
 create_symlink "$DOTFILES_DIR/tmux" "$HOME/.config/tmux"
 
 # OS-specific symlinks

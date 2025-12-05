@@ -14,6 +14,7 @@ set ignorecase
 set smartcase
 set incsearch
 set hlsearch
+set nrformats+=unsigned
 
 nnoremap <SPACE> <Nop>
 let mapleader=" "

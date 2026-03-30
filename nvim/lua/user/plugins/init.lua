@@ -17,9 +17,11 @@ return {
   },
 
   {
-    "ggandor/leap.nvim",
+    url = "https://codeberg.org/andyg/leap.nvim",
     config = function()
-      require("leap").add_default_mappings()
+      vim.keymap.set({'n', 'x', 'o'}, 's',  '<Plug>(leap-forward)')
+      vim.keymap.set({'n', 'x', 'o'}, 'S',  '<Plug>(leap-backward)')
+      vim.keymap.set({'n', 'x', 'o'}, 'gs', '<Plug>(leap-from-window)')
     end,
   },
 
@@ -33,11 +35,8 @@ return {
   {
     "kylechui/nvim-surround",
     config = function()
-      require("nvim-surround").setup({
-        keymaps = {
-          visual = "gS",
-        },
-      })
+      require("nvim-surround").setup()
+      vim.keymap.set("v", "gS", "<Plug>(nvim-surround-visual)")
     end,
   },
 

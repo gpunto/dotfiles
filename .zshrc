@@ -78,6 +78,8 @@ fi
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+zstyle ':omz:update' mode disabled
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -119,7 +121,7 @@ bindkey "ç" fzf-cd-widget
 
 eval "$(zoxide init zsh)"
 
-setopt CORRECT
+setopt HIST_IGNORE_ALL_DUPS
 
 # SSH agent setup (OS-specific)
 if [[ "$OSTYPE" == "darwin"* ]]; then

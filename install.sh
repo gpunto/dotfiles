@@ -88,6 +88,7 @@ if [[ "$OS" == "macos" ]]; then
     create_symlink "$DOTFILES_DIR/aerospace" "$HOME/.config/aerospace"
     create_symlink "$DOTFILES_DIR/karabiner.edn" "$HOME/.config/karabiner.edn"
     create_symlink "$DOTFILES_DIR/raycast" "$HOME/.config/raycast"
+    create_symlink "$DOTFILES_DIR/backrest/refresh-fda.sh" "$HOME/.local/bin/backrest-refresh-fda.sh"
 elif [[ "$OS" == "linux" ]]; then
     create_symlink "$DOTFILES_DIR/hypr" "$HOME/.config/hypr"
     create_symlink "$DOTFILES_DIR/rofi" "$HOME/.config/rofi"

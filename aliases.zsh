@@ -12,3 +12,5 @@ alias v='nvim'
 
 alias gw='./gradlew'
 
+alias backrest-fda='~/.local/bin/backrest-refresh-fda.sh'
+

@@ -9,8 +9,7 @@ gbf() {
 }
 
 alias v='nvim'
-
 alias gw='./gradlew'
-
 alias backrest-fda='~/.local/bin/backrest-refresh-fda.sh'
+alias c='claude'
 
